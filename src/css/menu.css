@@ -1,0 +1,93 @@
+.header nav ul{
+    display: flex;
+
+}
+.header nav ul li a{
+    font-size: 2rem;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.header nav ul li a:hover {
+    background-color: coral;
+    color: #fff;
+}
+.header .menu{
+    display: none;
+    width: 60px;
+    height: 60px;
+    align-self: flex-end;
+}
+.header nav label{
+    display: flex;
+    flex-direction: column;
+}
+.header .hamburguer{
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+    position: relative;
+    top: 29px;
+    left: 15px;
+    transition: 0.5s ease-in-out;
+}
+.header .hamburguer:after,
+.header .hamburguer:before{
+    content:"";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #000;
+    display: block;
+    transition: 0.7s ease-in-out;
+}
+.header .hamburguer::after{
+    top: -10px;
+}
+.header .hamburguer::before{
+    bottom: -10px;
+}
+.header input{
+    display: none;
+}
+.header input:checked ~ label .hamburguer{
+    transform: rotate(45deg);
+}
+.header input:checked ~ label .hamburguer:after{
+    top: 0px;
+    transform: rotate(90deg);
+}
+.header input:checked ~ label .hamburguer:before{
+    bottom: 0px;
+    transform: rotate(90deg);
+}
+
+@media (max-width:900px){
+    .header .menu{
+        display: block;
+    }
+    .header nav ul{
+        display: none;
+    }
+    .header input:checked ~ ul{
+        display: block;
+    }
+    .header nav{
+        z-index: 1;
+        position: absolute;
+        top: 8px;
+        right: 20px;
+    }
+    .header nav ul{
+        width: 200px;
+        background-color: #fff;
+        padding: 20px;
+    }
+    .header nav ul a{
+        text-align: center;
+        display: block;
+        padding: 20px;
+    }
+}
